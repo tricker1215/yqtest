@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.controller.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.controller.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/shopping</url-pattern>
+        <url-pattern>/query</url-pattern>
+        <url-pattern>/deleteCart</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>OrdersServlet</servlet-name>
+        <servlet-class>com.controller.OrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrdersServlet</servlet-name>
+        <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/query</url-pattern>
+        <url-pattern>/shopping</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>OrdersFilter</filter-name>
+        <filter-class>com.filter.OrdersFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>OrdersFilter</filter-name>
+        <url-pattern>/orders_view.jsp</url-pattern>
+    </filter-mapping>
+</web-app>
